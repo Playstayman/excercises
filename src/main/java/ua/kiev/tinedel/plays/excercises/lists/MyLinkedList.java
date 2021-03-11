@@ -25,10 +25,9 @@ public class MyLinkedList<V> implements IList<V> {
     public void insert(int position, V element) {
         Node<V> curr = new Node<>();
         curr.data = element;
-        curr.next= getByIndex(position);
-        getByIndex(position-1).next=curr;
+        curr.next = getByIndex(position);
+        getByIndex(position - 1).next = curr;
     }
-
 
 
     @Override
@@ -42,7 +41,7 @@ public class MyLinkedList<V> implements IList<V> {
     @Override
     public V delete(int position) {
         V data;
-        Node<V> left = getByIndex(position-1);
+        Node<V> left = getByIndex(position - 1);
         data = left.next.data;
         left.next = left.next.next;
         return data;
@@ -55,9 +54,9 @@ public class MyLinkedList<V> implements IList<V> {
 
     @Override
     public int size() {
-        int size=0;
-         Node<V> left = root;
-        while(left.next!=null){
+        int size = 0;
+        Node<V> left = root;
+        while (left.next != null) {
             left = left.next;
             size++;
         }
@@ -67,19 +66,18 @@ public class MyLinkedList<V> implements IList<V> {
     @Override
     public Node<V> findLast() {
         Node<V> left = root;
-        while(left.next!=null){
-            left=left.next;
+        while (left.next != null) {
+            left = left.next;
         }
         return left;
     }
 
-    private Node<V> getByIndex (int position){
-        Node<V> left = root.next;
-        for (int i = 0; i < position; i++) {
-            if (left.next==null){
+    private Node<V> getByIndex(int position) {
+        Node<V> left = root;
+        for (int i = 0; i < position+1; i++) {
+            if (left.next == null) {
                 throw new IndexOutOfBoundsException();
-            }
-            else{
+            } else {
                 left = left.next;
             }
         }

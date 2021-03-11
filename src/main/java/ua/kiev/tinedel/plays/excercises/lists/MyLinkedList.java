@@ -74,7 +74,7 @@ public class MyLinkedList<V> implements IList<V> {
 
     private Node<V> getByIndex(int position) {
         Node<V> left = root;
-        for (int i = 0; i < position+1; i++) {
+        for (int i = 0; i < position + 1; i++) {
             if (left.next == null) {
                 throw new IndexOutOfBoundsException();
             } else {
